@@ -42,8 +42,8 @@ jobs:
           python scripts/generate_chronological_snake.py \
             --username 7toCR \
             --output-dir dist \
-            --max-years 0 \
-            --duration 60 \
+            --max-years 1 \
+            --duration 48 \
             --light-snake "#2563EB" \
             --light-outline "#1E40AF" \
             --dark-snake "#A78BFA" \

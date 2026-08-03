@@ -50,6 +50,8 @@ LIGHT_PALETTE = {
     "eye": "#ffffff",
     "pupil": "#111827",
     "connector": "#d0d7de",
+    "spark": "#F59E0B",
+    "spark_soft": "#FDE68A",
 }
 
 DARK_PALETTE = {
@@ -67,6 +69,8 @@ DARK_PALETTE = {
     "eye": "#ffffff",
     "pupil": "#111827",
     "connector": "#30363d",
+    "spark": "#FBBF24",
+    "spark_soft": "#FEF3C7",
 }
 
 
@@ -147,9 +151,13 @@ def fetch_contribution_years(username: str, token: str) -> list[int]:
     return sorted({int(year) for year in years})
 
 
-def fetch_year(username: str, token: str, year: int, today: dt.date) -> list[ContributionDay]:
-    start = dt.datetime(year, 1, 1, tzinfo=dt.timezone.utc)
-    end_date = min(today, dt.date(year, 12, 31))
+def fetch_range(
+    username: str,
+    token: str,
+    start_date: dt.date,
+    end_date: dt.date,
+) -> list[ContributionDay]:
+    start = dt.datetime.combine(start_date, dt.time.min, tzinfo=dt.timezone.utc)
     end = dt.datetime.combine(end_date, dt.time(23, 59, 59), tzinfo=dt.timezone.utc)
 
     query = """
@@ -185,7 +193,7 @@ def fetch_year(username: str, token: str, year: int, today: dt.date) -> list[Con
     for week in calendar["weeks"]:
         for raw in week["contributionDays"]:
             date = dt.date.fromisoformat(raw["date"])
-            if date.year != year or date > today:
+            if date < start_date or date > end_date:
                 continue
             level = raw.get("contributionLevel", "NONE")
             if level not in LEVELS:
@@ -200,35 +208,56 @@ def fetch_year(username: str, token: str, year: int, today: dt.date) -> list[Con
     return sorted(result, key=lambda item: item.date)
 
 
-def fill_calendar_days(days: Iterable[ContributionDay], first_year: int, today: dt.date) -> list[ContributionDay]:
+def rolling_year_start(today: dt.date) -> dt.date:
+    """Return the first day in an inclusive 365-day contribution window."""
+    return today - dt.timedelta(days=364)
+
+
+def fill_calendar_days(
+    days: Iterable[ContributionDay],
+    start_date: dt.date,
+    end_date: dt.date,
+) -> list[ContributionDay]:
     by_date = {day.date: day for day in days}
-    cursor = dt.date(first_year, 1, 1)
+    cursor = start_date
     result: list[ContributionDay] = []
-    while cursor <= today:
+    while cursor <= end_date:
         result.append(by_date.get(cursor, ContributionDay(cursor, 0, "NONE")))
         cursor += dt.timedelta(days=1)
     return result
 
 
 def load_github_days(username: str, token: str, max_years: int, today: dt.date) -> list[ContributionDay]:
+    if max_years == 1:
+        start_date = rolling_year_start(today)
+        print(
+            f"Fetching rolling contribution calendar from {start_date} to {today}...",
+            file=sys.stderr,
+        )
+        fetched = fetch_range(username, token, start_date, today)
+        return fill_calendar_days(fetched, start_date, today)
+
     years = [year for year in fetch_contribution_years(username, token) if year <= today.year]
     if not years:
         years = [today.year]
     if max_years > 0:
         years = years[-max_years:]
 
+    start_date = dt.date(min(years), 1, 1)
     fetched: list[ContributionDay] = []
     for year in years:
+        year_start = dt.date(year, 1, 1)
+        year_end = min(today, dt.date(year, 12, 31))
         print(f"Fetching contribution calendar for {year}...", file=sys.stderr)
-        fetched.extend(fetch_year(username, token, year, today))
+        fetched.extend(fetch_range(username, token, year_start, year_end))
 
-    return fill_calendar_days(fetched, min(years), today)
+    return fill_calendar_days(fetched, start_date, today)
 
 
-def generate_demo_days(today: dt.date) -> list[ContributionDay]:
+def generate_demo_days(today: dt.date, max_years: int) -> list[ContributionDay]:
     """Create deterministic sample data for local preview and validation."""
     rng = random.Random(7)
-    start = dt.date(today.year - 1, 1, 1)
+    start = rolling_year_start(today) if max_years == 1 else dt.date(today.year - 1, 1, 1)
     result: list[ContributionDay] = []
     cursor = start
     while cursor <= today:
@@ -253,10 +282,9 @@ def generate_demo_days(today: dt.date) -> list[ContributionDay]:
     return result
 
 
-def first_sunday(year: int) -> dt.date:
-    jan1 = dt.date(year, 1, 1)
-    days_since_sunday = (jan1.weekday() + 1) % 7
-    return jan1 - dt.timedelta(days=days_since_sunday)
+def first_sunday(date: dt.date) -> dt.date:
+    days_since_sunday = (date.weekday() + 1) % 7
+    return date - dt.timedelta(days=days_since_sunday)
 
 
 def escape(value: str) -> str:
@@ -287,77 +315,53 @@ def svg_path(points: Sequence[Point]) -> str:
 
 
 def build_layout(days: Sequence[ContributionDay], cell: int, gap: int) -> tuple[
-    dict[dt.date, Point], dict[int, float], int, int, float, float
+    dict[dt.date, Point], float, int, int, float, float
 ]:
     pitch = cell + gap
-    years = sorted({day.date.year for day in days})
     title_height = 64
-    label_left = 68
-    right_padding = 34
+    label_left = 30
+    right_padding = 24
     month_label_height = 18
-    year_gap = 42
+    bottom_padding = 24
     grid_height = 7 * pitch - gap
-
-    max_week = 0
-    for year in years:
-        start = first_sunday(year)
-        end = max(day.date for day in days if day.date.year == year)
-        max_week = max(max_week, (end - start).days // 7)
-
+    grid_start = first_sunday(days[0].date)
+    max_week = (days[-1].date - grid_start).days // 7
     grid_width = (max_week + 1) * pitch - gap
     width = int(label_left + grid_width + right_padding)
-    row_step = month_label_height + grid_height + year_gap
-    height = int(title_height + len(years) * row_step + 12)
+    grid_top = title_height + month_label_height
+    height = int(grid_top + grid_height + bottom_padding)
 
-    year_tops: dict[int, float] = {}
     coordinates: dict[dt.date, Point] = {}
-    for index, year in enumerate(years):
-        grid_top = title_height + index * row_step + month_label_height
-        year_tops[year] = grid_top
-        start = first_sunday(year)
-        for day in (item for item in days if item.date.year == year):
-            week = (day.date - start).days // 7
-            weekday_sunday_zero = (day.date.weekday() + 1) % 7
-            coordinates[day.date] = Point(
-                x=label_left + week * pitch + cell / 2,
-                y=grid_top + weekday_sunday_zero * pitch + cell / 2,
-            )
+    for day in days:
+        week = (day.date - grid_start).days // 7
+        weekday_sunday_zero = (day.date.weekday() + 1) % 7
+        coordinates[day.date] = Point(
+            x=label_left + week * pitch + cell / 2,
+            y=grid_top + weekday_sunday_zero * pitch + cell / 2,
+        )
 
-    return coordinates, year_tops, width, height, label_left, grid_width
+    return coordinates, grid_top, width, height, label_left, grid_width
 
 
 def build_route(
     route_days: Sequence[ContributionDay],
     coordinates: dict[dt.date, Point],
-    label_left: float,
-    grid_width: float,
-    connector_margin: float,
 ) -> tuple[list[Point], dict[dt.date, float], float]:
+    """Build an orthogonal route whose turns stay on contribution-cell centers."""
     if not route_days:
         raise ValueError("No route days")
 
     points: list[Point] = [coordinates[route_days[0].date]]
     date_point_indices = {route_days[0].date: 0}
-    previous_day = route_days[0]
+    previous_point = points[0]
 
     for day in route_days[1:]:
         point = coordinates[day.date]
-        previous_point = coordinates[previous_day.date]
-        if day.date.year != previous_day.date.year:
-            right_x = label_left + grid_width + connector_margin
-            left_x = label_left - connector_margin
-            bridge_y = point.y - 16
-            points.extend(
-                [
-                    Point(right_x, previous_point.y),
-                    Point(right_x, bridge_y),
-                    Point(left_x, bridge_y),
-                    Point(left_x, point.y),
-                ]
-            )
+        if point.x != previous_point.x and point.y != previous_point.y:
+            points.append(Point(point.x, previous_point.y))
         points.append(point)
         date_point_indices[day.date] = len(points) - 1
-        previous_day = day
+        previous_point = point
 
     total, cumulative = polyline_length(points)
     date_distances = {
@@ -369,14 +373,11 @@ def build_route(
 
 def build_timeline(
     route_days: Sequence[ContributionDay],
-    coordinates: dict[dt.date, Point],
     date_distances: dict[dt.date, float],
     duration: float,
     start_hold: float,
     end_hold: float,
-    empty_weight: float,
-    active_weight: float,
-    year_transition_weight: float,
+    active_slowdown: float,
 ) -> list[TimelineEntry]:
     if duration <= start_hold + end_hold:
         raise ValueError("duration must exceed start_hold + end_hold")
@@ -385,10 +386,12 @@ def build_timeline(
     movement_duration = duration - start_hold - end_hold
     transition_weights: list[float] = []
     for previous, current in zip(route_days, route_days[1:]):
-        weight = active_weight if current.active else empty_weight
-        if previous.date.year != current.date.year:
-            weight += year_transition_weight
-        transition_weights.append(weight)
+        previous_distance = date_distances[previous.date]
+        current_distance = date_distances[current.date]
+        distance_weight = max(0.01, current_distance - previous_distance)
+        if current.active:
+            distance_weight += active_slowdown
+        transition_weights.append(distance_weight)
     total_weight = sum(transition_weights) or 1.0
 
     entries: list[TimelineEntry] = []
@@ -398,7 +401,7 @@ def build_timeline(
     entries.append(
         TimelineEntry(
             day=first,
-            point=coordinates[first.date],
+            point=Point(0.0, 0.0),
             distance=date_distances[first.date],
             key_time=0.0,
             active_eaten=0,
@@ -410,7 +413,7 @@ def build_timeline(
     entries.append(
         TimelineEntry(
             day=first,
-            point=coordinates[first.date],
+            point=Point(0.0, 0.0),
             distance=date_distances[first.date],
             key_time=start_hold / duration,
             active_eaten=active_eaten,
@@ -426,7 +429,7 @@ def build_timeline(
         entries.append(
             TimelineEntry(
                 day=day,
-                point=coordinates[day.date],
+                point=Point(0.0, 0.0),
                 distance=date_distances[day.date],
                 key_time=seconds / duration,
                 active_eaten=active_eaten,
@@ -446,14 +449,21 @@ def build_timeline(
     return entries
 
 
-def month_labels_for_year(year: int, available_dates: set[dt.date], coordinates: dict[dt.date, Point]) -> list[tuple[str, float]]:
+def month_labels(
+    days: Sequence[ContributionDay],
+    coordinates: dict[dt.date, Point],
+) -> list[tuple[str, float]]:
     labels: list[tuple[str, float]] = []
-    for month in range(1, 13):
-        candidates = sorted(date for date in available_dates if date.year == year and date.month == month)
-        if not candidates:
+    previous_month: tuple[int, int] | None = None
+    for day in days:
+        month = (day.date.year, day.date.month)
+        if month == previous_month:
             continue
-        first = candidates[0]
-        labels.append((first.strftime("%b"), coordinates[first].x - 4))
+        label = day.date.strftime("%b")
+        if day.date.month == 1:
+            label = f"{label} '{str(day.date.year)[2:]}"
+        labels.append((label, coordinates[day.date].x - 4))
+        previous_month = month
     return labels
 
 
@@ -480,24 +490,15 @@ def render_svg(
 
     first_active = active_days[0].date
     route_days = [day for day in days if first_active <= day.date <= days[-1].date]
-    coordinates, year_tops, width, height, label_left, grid_width = build_layout(days, cell, gap)
-    route_points, date_distances, total_path_length = build_route(
-        route_days,
-        coordinates,
-        label_left,
-        grid_width,
-        connector_margin=22,
-    )
+    coordinates, grid_top, width, height, label_left, grid_width = build_layout(days, cell, gap)
+    route_points, date_distances, total_path_length = build_route(route_days, coordinates)
     timeline = build_timeline(
         route_days,
-        coordinates,
         date_distances,
         duration=duration,
         start_hold=1.2,
         end_hold=1.6,
-        empty_weight=0.10,
-        active_weight=1.0,
-        year_transition_weight=1.6,
+        active_slowdown=20.0,
     )
 
     path_d = svg_path(route_points)
@@ -518,8 +519,6 @@ def render_svg(
         if entry.day.active and entry.day.date not in active_eat_times:
             active_eat_times[entry.day.date] = entry.key_time
 
-    years = sorted({day.date.year for day in days})
-    available_dates = {day.date for day in days}
     total_contributions = sum(day.count for day in days)
     total_active_days = len(active_days)
 
@@ -541,6 +540,14 @@ def render_svg(
         f'<feDropShadow dx="0" dy="1.5" stdDeviation="1.4" flood-color="{palette["snake_outline"]}" flood-opacity="0.45"/>'
         "</filter>"
     )
+    out.append(
+        '<filter id="eat-glow" x="-120%" y="-120%" width="340%" height="340%">'
+        f'<feGaussianBlur stdDeviation="2.1" result="blur"/>'
+        f'<feFlood flood-color="{palette["spark"]}" flood-opacity="0.9" result="color"/>'
+        '<feComposite in="color" in2="blur" operator="in" result="glow"/>'
+        '<feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>'
+        "</filter>"
+    )
     out.append("</defs>")
     out.append(f'<rect width="100%" height="100%" rx="12" fill="{palette["background"]}"/>')
 
@@ -550,22 +557,15 @@ def render_svg(
     )
     out.append(
         f'<text x="18" y="47" fill="{palette["muted"]}" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" '
-        f'font-size="11">oldest to newest · {total_active_days} active days · {total_contributions} contributions</text>'
+        f'font-size="11">last 365 days · {total_active_days} active days · {total_contributions} contributions</text>'
     )
 
-    # Calendar rows and month labels.
-    for year in years:
-        grid_top = year_tops[year]
+    # One rolling-year calendar with compact month markers.
+    for label, x in month_labels(days, coordinates):
         out.append(
-            f'<text x="12" y="{fmt(grid_top + 10)}" fill="{palette["muted"]}" '
-            'font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11" font-weight="600">'
-            f'{year}</text>'
+            f'<text x="{fmt(x)}" y="{fmt(grid_top - 7)}" fill="{palette["muted"]}" '
+            f'font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="9">{label}</text>'
         )
-        for label, x in month_labels_for_year(year, available_dates, coordinates):
-            out.append(
-                f'<text x="{fmt(x)}" y="{fmt(grid_top - 7)}" fill="{palette["muted"]}" '
-                f'font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="9">{label}</text>'
-            )
 
     # Contribution cells. Active cells turn empty exactly when eaten.
     for day in days:
@@ -580,14 +580,52 @@ def render_svg(
         )
         if day.active and day.date in active_eat_times:
             eat_time = active_eat_times[day.date]
-            before = max(0.0, eat_time - 0.001)
-            after = min(1.0, eat_time + 0.001)
+            anticipation = max(0.0, eat_time - 0.004)
+            after = min(1.0, eat_time + 0.003)
             out.append(
                 f'<animate attributeName="fill" dur="{fmt(duration)}s" repeatCount="indefinite" '
-                f'values="{original_fill};{original_fill};{palette["empty"]};{palette["empty"]}" '
-                f'keyTimes="0;{fmt(before)};{fmt(after)};1" calcMode="discrete"/>'
+                f'values="{original_fill};{original_fill};{palette["spark_soft"]};{palette["empty"]};{palette["empty"]}" '
+                f'keyTimes="0;{fmt(anticipation)};{fmt(eat_time)};{fmt(after)};1" calcMode="discrete"/>'
+            )
+            out.append(
+                f'<animate attributeName="opacity" dur="{fmt(duration)}s" repeatCount="indefinite" '
+                f'values="1;1;0.35;1;1" keyTimes="0;{fmt(anticipation)};{fmt(eat_time)};{fmt(after)};1"/>'
             )
         out.append("</rect>")
+
+    # A short pixel-burst marks each bite without obscuring neighboring cells.
+    burst_offsets = ((-7, 0), (7, 0), (0, -7), (0, 7))
+    for day in active_days:
+        eat_time = active_eat_times.get(day.date)
+        if eat_time is None:
+            continue
+        point = coordinates[day.date]
+        burst_start = max(0.0, eat_time - 0.001)
+        burst_peak = min(1.0, eat_time + 0.003)
+        burst_end = min(1.0, eat_time + 0.009)
+        out.append(
+            f'<g transform="translate({fmt(point.x)} {fmt(point.y)})" '
+            'pointer-events="none" filter="url(#eat-glow)">'
+        )
+        out.append(
+            f'<circle cx="0" cy="0" r="2.4" fill="none" stroke="{palette["spark"]}" stroke-width="1.4">'
+            f'<animate attributeName="r" dur="{fmt(duration)}s" repeatCount="indefinite" '
+            f'values="2.4;2.4;7.5;10" keyTimes="0;{fmt(burst_start)};{fmt(burst_peak)};{fmt(burst_end)};1"/>'
+            f'<animate attributeName="opacity" dur="{fmt(duration)}s" repeatCount="indefinite" '
+            f'values="0;0;0.95;0;0" keyTimes="0;{fmt(burst_start)};{fmt(burst_peak)};{fmt(burst_end)};1"/>'
+            '</circle>'
+        )
+        for dx, dy in burst_offsets:
+            out.append(
+                f'<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="{palette["spark_soft"]}">'
+                f'<animateTransform attributeName="transform" type="translate" dur="{fmt(duration)}s" repeatCount="indefinite" '
+                f'values="0 0;0 0;{dx} {dy};{fmt(dx * 1.45)} {fmt(dy * 1.45)}" '
+                f'keyTimes="0;{fmt(burst_start)};{fmt(burst_peak)};{fmt(burst_end)};1"/>'
+                f'<animate attributeName="opacity" dur="{fmt(duration)}s" repeatCount="indefinite" '
+                f'values="0;0;1;0;0" keyTimes="0;{fmt(burst_start)};{fmt(burst_peak)};{fmt(burst_end)};1"/>'
+                '</rect>'
+            )
+        out.append("</g>")
 
     # Subtle guide route, then animated growing snake body.
     out.append(
@@ -647,8 +685,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--username", default=os.environ.get("GITHUB_USERNAME", "7toCR"))
     parser.add_argument("--token", default=os.environ.get("GH_TOKEN") or os.environ.get("GITHUB_TOKEN"))
     parser.add_argument("--output-dir", type=Path, default=Path("dist"))
-    parser.add_argument("--duration", type=float, default=60.0, help="Animation duration in seconds")
-    parser.add_argument("--max-years", type=int, default=0, help="0 means all contribution years")
+    parser.add_argument("--duration", type=float, default=48.0, help="Animation duration in seconds")
+    parser.add_argument("--max-years", type=int, default=1, help="1 means the latest rolling 365 days")
     parser.add_argument("--cell-size", type=int, default=10)
     parser.add_argument("--cell-gap", type=int, default=3)
     parser.add_argument("--base-body", type=float, default=34.0)
@@ -670,7 +708,7 @@ def main() -> int:
         raise SystemExit("cell size/gap are too small")
 
     if args.demo:
-        days = generate_demo_days(args.today)
+        days = generate_demo_days(args.today, args.max_years)
     else:
         if not args.token:
             raise SystemExit("GH_TOKEN or GITHUB_TOKEN is required unless --demo is used")
@@ -711,7 +749,10 @@ def main() -> int:
         "active_days": len(active),
         "total_contributions": sum(day.count for day in days),
         "duration_seconds": args.duration,
+        "window_days": len(days),
+        "window_start": days[0].date.isoformat(),
         "ordering": "ascending-date",
+        "route": "orthogonal-cell-grid",
         "growth_rule": "one segment per active contribution day",
     }
     (args.output_dir / "metadata.json").write_text(
