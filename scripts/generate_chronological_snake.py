@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Generate a chronological, growing GitHub contribution snake as animated SVG.
+"""Generate a growing GitHub contribution snake as animated SVG.
 
-The snake visits contribution-calendar dates in ascending order. Empty days are
-traversed quickly; active contribution days are eaten in strict date order. Each
-active day increases the target body length by one segment.
+The snake moves orthogonally across the contribution grid and repeatedly seeks
+the nearest reachable active cell. Empty cells are only traversal space; eating
+and body growth happen exclusively when the snake reaches a contribution.
 
 Only the Python standard library is required.
 """
@@ -20,6 +20,7 @@ import random
 import sys
 import urllib.error
 import urllib.request
+from collections import deque
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable, Sequence
@@ -49,7 +50,6 @@ LIGHT_PALETTE = {
     "snake_outline": "#1E40AF",
     "eye": "#ffffff",
     "pupil": "#111827",
-    "connector": "#d0d7de",
     "spark": "#F59E0B",
     "spark_soft": "#FDE68A",
 }
@@ -68,7 +68,6 @@ DARK_PALETTE = {
     "snake_outline": "#6D28D9",
     "eye": "#ffffff",
     "pupil": "#111827",
-    "connector": "#30363d",
     "spark": "#FBBF24",
     "spark_soft": "#FEF3C7",
 }
@@ -86,18 +85,41 @@ class ContributionDay:
 
 
 @dataclass(frozen=True)
+class GridPoint:
+    column: int
+    row: int
+
+
+@dataclass(frozen=True)
 class Point:
     x: float
     y: float
 
 
 @dataclass(frozen=True)
-class TimelineEntry:
+class EatEvent:
     day: ContributionDay
-    point: Point
+    grid_point: GridPoint
+    step_index: int
+    distance: float
+
+
+@dataclass(frozen=True)
+class Route:
+    grid_points: tuple[GridPoint, ...]
+    points: tuple[Point, ...]
+    eat_events: tuple[EatEvent, ...]
+    total_distance: float
+    step_distance: float
+
+
+@dataclass(frozen=True)
+class TimelineEntry:
+    step_index: int
     distance: float
     key_time: float
     active_eaten: int
+    eaten_date: dt.date | None = None
 
 
 class GitHubGraphQLError(RuntimeError):
@@ -314,6 +336,26 @@ def svg_path(points: Sequence[Point]) -> str:
     return " ".join(parts)
 
 
+def build_grid(days: Sequence[ContributionDay]) -> tuple[
+    dict[dt.date, GridPoint], dict[GridPoint, ContributionDay]
+]:
+    """Map displayed calendar dates to their discrete week/weekday cells."""
+    if not days:
+        raise ValueError("No calendar days")
+
+    grid_start = first_sunday(days[0].date)
+    date_grid: dict[dt.date, GridPoint] = {}
+    grid_days: dict[GridPoint, ContributionDay] = {}
+    for day in days:
+        point = GridPoint(
+            column=(day.date - grid_start).days // 7,
+            row=(day.date.weekday() + 1) % 7,
+        )
+        date_grid[day.date] = point
+        grid_days[point] = day
+    return date_grid, grid_days
+
+
 def build_layout(days: Sequence[ContributionDay], cell: int, gap: int) -> tuple[
     dict[dt.date, Point], float, int, int, float, float
 ]:
@@ -324,126 +366,255 @@ def build_layout(days: Sequence[ContributionDay], cell: int, gap: int) -> tuple[
     month_label_height = 18
     bottom_padding = 24
     grid_height = 7 * pitch - gap
-    grid_start = first_sunday(days[0].date)
-    max_week = (days[-1].date - grid_start).days // 7
+    date_grid, _ = build_grid(days)
+    max_week = max(point.column for point in date_grid.values())
     grid_width = (max_week + 1) * pitch - gap
     width = int(label_left + grid_width + right_padding)
     grid_top = title_height + month_label_height
     height = int(grid_top + grid_height + bottom_padding)
 
-    coordinates: dict[dt.date, Point] = {}
-    for day in days:
-        week = (day.date - grid_start).days // 7
-        weekday_sunday_zero = (day.date.weekday() + 1) % 7
-        coordinates[day.date] = Point(
-            x=label_left + week * pitch + cell / 2,
-            y=grid_top + weekday_sunday_zero * pitch + cell / 2,
+    coordinates = {
+        date: Point(
+            x=label_left + point.column * pitch + cell / 2,
+            y=grid_top + point.row * pitch + cell / 2,
         )
-
+        for date, point in date_grid.items()
+    }
     return coordinates, grid_top, width, height, label_left, grid_width
 
 
+GRID_DIRECTIONS = (
+    GridPoint(0, -1),
+    GridPoint(-1, 0),
+    GridPoint(1, 0),
+    GridPoint(0, 1),
+)
+
+
+def grid_neighbors(point: GridPoint) -> Iterable[GridPoint]:
+    for direction in GRID_DIRECTIONS:
+        yield GridPoint(point.column + direction.column, point.row + direction.row)
+
+
+def manhattan_distance(left: GridPoint, right: GridPoint) -> int:
+    return abs(left.column - right.column) + abs(left.row - right.row)
+
+
+def choose_start_cell(
+    active_days: Sequence[ContributionDay],
+    date_grid: dict[dt.date, GridPoint],
+    grid_days: dict[GridPoint, ContributionDay],
+) -> GridPoint:
+    """Choose a stable nearby empty cell, preferring the oldest food's left side."""
+    oldest = min(active_days, key=lambda day: day.date)
+    target = date_grid[oldest.date]
+    empty_cells = [point for point, day in grid_days.items() if not day.active]
+    if not empty_cells:
+        return target
+
+    def candidate_key(point: GridPoint) -> tuple[int, int, dt.date, int, int]:
+        distance = manhattan_distance(point, target)
+        if point.row == target.row and point.column < target.column:
+            direction_rank = 0
+        elif point.column < target.column:
+            direction_rank = 1
+        elif point.row == target.row:
+            direction_rank = 2
+        else:
+            direction_rank = 3
+        return (
+            distance,
+            direction_rank,
+            grid_days[point].date,
+            point.column,
+            point.row,
+        )
+
+    return min(empty_cells, key=candidate_key)
+
+
+def shortest_paths(
+    start: GridPoint,
+    legal_cells: set[GridPoint],
+) -> tuple[dict[GridPoint, int], dict[GridPoint, GridPoint]]:
+    """Run deterministic four-direction BFS over displayed contribution cells."""
+    distances = {start: 0}
+    parents: dict[GridPoint, GridPoint] = {}
+    queue = deque([start])
+    while queue:
+        current = queue.popleft()
+        for neighbor in grid_neighbors(current):
+            if neighbor not in legal_cells or neighbor in distances:
+                continue
+            distances[neighbor] = distances[current] + 1
+            parents[neighbor] = current
+            queue.append(neighbor)
+    return distances, parents
+
+
+def reconstruct_path(
+    start: GridPoint,
+    target: GridPoint,
+    parents: dict[GridPoint, GridPoint],
+) -> list[GridPoint]:
+    if target == start:
+        return [start]
+    path = [target]
+    while path[-1] != start:
+        path.append(parents[path[-1]])
+    path.reverse()
+    return path
+
+
 def build_route(
-    route_days: Sequence[ContributionDay],
+    days: Sequence[ContributionDay],
     coordinates: dict[dt.date, Point],
-) -> tuple[list[Point], dict[dt.date, float], float]:
-    """Build an orthogonal route whose turns stay on contribution-cell centers."""
-    if not route_days:
-        raise ValueError("No route days")
+) -> Route:
+    """Build a deterministic nearest-food route over contribution-grid cells."""
+    active_days = [day for day in days if day.active]
+    if not active_days:
+        raise ValueError("No active contribution days")
 
-    points: list[Point] = [coordinates[route_days[0].date]]
-    date_point_indices = {route_days[0].date: 0}
-    previous_point = points[0]
-
-    for day in route_days[1:]:
-        point = coordinates[day.date]
-        if point.x != previous_point.x and point.y != previous_point.y:
-            points.append(Point(point.x, previous_point.y))
-        points.append(point)
-        date_point_indices[day.date] = len(points) - 1
-        previous_point = point
-
-    total, cumulative = polyline_length(points)
-    date_distances = {
-        date: cumulative[index]
-        for date, index in date_point_indices.items()
+    date_grid, grid_days = build_grid(days)
+    point_coordinates = {
+        date_grid[date]: point
+        for date, point in coordinates.items()
     }
-    return points, date_distances, total
+    legal_cells = set(grid_days)
+    current = choose_start_cell(active_days, date_grid, grid_days)
+    route_grid = [current]
+    remaining = {date_grid[day.date]: day for day in active_days}
+    event_data: list[tuple[ContributionDay, GridPoint, int]] = []
+    first_target = True
+
+    while remaining:
+        distances, parents = shortest_paths(current, legal_cells)
+        reachable = [
+            (point, day)
+            for point, day in remaining.items()
+            if point in distances
+        ]
+        if not reachable:
+            raise ValueError("An active contribution cell is unreachable")
+
+        target_distances = (
+            {point: manhattan_distance(point, current) for point in remaining}
+            if first_target
+            else distances
+        )
+        target, target_day = min(
+            reachable,
+            key=lambda item: (
+                target_distances[item[0]],
+                item[1].date,
+                item[0].column,
+                item[0].row,
+            ),
+        )
+        path = reconstruct_path(current, target, parents)
+        route_grid.extend(path[1:])
+        event_data.append((target_day, target, len(route_grid) - 1))
+        del remaining[target]
+        current = target
+        first_target = False
+
+    route_points = tuple(point_coordinates[point] for point in route_grid)
+    total_distance, cumulative = polyline_length(route_points)
+    step_distance = cumulative[1] if len(cumulative) > 1 else 0.0
+    events = tuple(
+        EatEvent(
+            day=day,
+            grid_point=point,
+            step_index=step_index,
+            distance=cumulative[step_index],
+        )
+        for day, point, step_index in event_data
+    )
+    return Route(
+        grid_points=tuple(route_grid),
+        points=route_points,
+        eat_events=events,
+        total_distance=total_distance,
+        step_distance=step_distance,
+    )
 
 
 def build_timeline(
-    route_days: Sequence[ContributionDay],
-    date_distances: dict[dt.date, float],
+    route: Route,
     duration: float,
     start_hold: float,
     end_hold: float,
     active_slowdown: float,
 ) -> list[TimelineEntry]:
+    """Allocate animation time to real grid steps and short food-arrival pauses."""
     if duration <= start_hold + end_hold:
         raise ValueError("duration must exceed start_hold + end_hold")
+    if active_slowdown <= 0:
+        raise ValueError("active_slowdown must be positive")
 
-    first = route_days[0]
     movement_duration = duration - start_hold - end_hold
-    transition_weights: list[float] = []
-    for previous, current in zip(route_days, route_days[1:]):
-        previous_distance = date_distances[previous.date]
-        current_distance = date_distances[current.date]
-        distance_weight = max(0.01, current_distance - previous_distance)
-        if current.active:
-            distance_weight += active_slowdown
-        transition_weights.append(distance_weight)
-    total_weight = sum(transition_weights) or 1.0
-
-    entries: list[TimelineEntry] = []
-    active_eaten = 0
-
-    # Initial state: head waits over the oldest contribution, before eating it.
-    entries.append(
-        TimelineEntry(
-            day=first,
-            point=Point(0.0, 0.0),
-            distance=date_distances[first.date],
-            key_time=0.0,
-            active_eaten=0,
-        )
+    event_by_step = {event.step_index: event for event in route.eat_events}
+    event_count = len(route.eat_events)
+    total_weight = route.total_distance + active_slowdown * event_count
+    weighted_pause = (
+        movement_duration * active_slowdown * event_count / total_weight
+        if total_weight > 0
+        else 0.0
+    )
+    pause_duration = min(weighted_pause, 0.24 * event_count, movement_duration * 0.45)
+    pause_per_event = pause_duration / event_count if event_count else 0.0
+    seconds_per_distance = (
+        (movement_duration - pause_duration) / route.total_distance
+        if route.total_distance > 0
+        else 0.0
     )
 
-    if first.active:
+    entries = [TimelineEntry(0, 0.0, 0.0, 0)]
+    active_eaten = 0
+    elapsed = start_hold
+    start_event = event_by_step.get(0)
+    if start_event is not None:
         active_eaten += 1
     entries.append(
         TimelineEntry(
-            day=first,
-            point=Point(0.0, 0.0),
-            distance=date_distances[first.date],
-            key_time=start_hold / duration,
+            step_index=0,
+            distance=0.0,
+            key_time=elapsed / duration,
             active_eaten=active_eaten,
+            eaten_date=start_event.day.date if start_event else None,
         )
     )
+    if start_event is not None:
+        elapsed += pause_per_event
+        entries.append(TimelineEntry(0, 0.0, elapsed / duration, active_eaten))
 
-    accumulated = 0.0
-    for index, day in enumerate(route_days[1:]):
-        accumulated += transition_weights[index]
-        seconds = start_hold + movement_duration * accumulated / total_weight
-        if day.active:
+    for step_index in range(1, len(route.points)):
+        distance = step_index * route.step_distance
+        elapsed += route.step_distance * seconds_per_distance
+        event = event_by_step.get(step_index)
+        if event is not None:
             active_eaten += 1
         entries.append(
             TimelineEntry(
-                day=day,
-                point=Point(0.0, 0.0),
-                distance=date_distances[day.date],
-                key_time=seconds / duration,
+                step_index=step_index,
+                distance=distance,
+                key_time=elapsed / duration,
                 active_eaten=active_eaten,
+                eaten_date=event.day.date if event else None,
             )
         )
+        if event is not None:
+            elapsed += pause_per_event
+            entries.append(
+                TimelineEntry(step_index, distance, elapsed / duration, active_eaten)
+            )
 
-    final = entries[-1]
     entries.append(
         TimelineEntry(
-            day=final.day,
-            point=final.point,
-            distance=final.distance,
+            step_index=len(route.points) - 1,
+            distance=route.total_distance,
             key_time=1.0,
-            active_eaten=final.active_eaten,
+            active_eaten=active_eaten,
         )
     )
     return entries
@@ -488,20 +659,17 @@ def render_svg(
     if not active_days:
         raise ValueError("No active contribution days were found")
 
-    first_active = active_days[0].date
-    route_days = [day for day in days if first_active <= day.date <= days[-1].date]
     coordinates, grid_top, width, height, label_left, grid_width = build_layout(days, cell, gap)
-    route_points, date_distances, total_path_length = build_route(route_days, coordinates)
+    route = build_route(days, coordinates)
     timeline = build_timeline(
-        route_days,
-        date_distances,
+        route,
         duration=duration,
         start_hold=1.2,
         end_hold=1.6,
         active_slowdown=20.0,
     )
-
-    path_d = svg_path(route_points)
+    total_path_length = max(route.total_distance, 0.01)
+    path_d = svg_path(route.points)
     key_times = ";".join(fmt(entry.key_time) for entry in timeline)
     key_points = ";".join(fmt(entry.distance / total_path_length) for entry in timeline)
 
@@ -514,10 +682,11 @@ def render_svg(
         dash_arrays.append(f"{fmt(max(0.01, visible_body))} {fmt(total_path_length + 1)}")
         dash_offsets.append(fmt(-tail))
 
-    active_eat_times: dict[dt.date, float] = {}
-    for entry in timeline[1:-1]:
-        if entry.day.active and entry.day.date not in active_eat_times:
-            active_eat_times[entry.day.date] = entry.key_time
+    active_eat_times = {
+        entry.eaten_date: entry.key_time
+        for entry in timeline
+        if entry.eaten_date is not None
+    }
 
     total_contributions = sum(day.count for day in days)
     total_active_days = len(active_days)
@@ -527,12 +696,14 @@ def render_svg(
     out.append(
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" '
         f'viewBox="0 0 {width} {height}" role="img" '
-        f'aria-label="{escape(username)} chronological contribution snake">'
+        f'aria-label="{escape(username)} nearest-food contribution snake">'
     )
-    out.append("<title>Chronological GitHub contribution snake</title>")
+    out.append("<title>Nearest-food GitHub contribution snake</title>")
     out.append(
-        f"<desc>The snake eats {total_active_days} active contribution days from "
-        f"{first_active.isoformat()} to {days[-1].date.isoformat()} in chronological order.</desc>"
+        f"<desc>Across the 365-day window from {days[0].date.isoformat()} to "
+        f"{days[-1].date.isoformat()}, the snake follows four-direction shortest "
+        f"paths to eat {total_active_days} active contribution days; empty cells "
+        "are traversal space only.</desc>"
     )
     out.append("<defs>")
     out.append(
@@ -553,7 +724,7 @@ def render_svg(
 
     out.append(
         f'<text x="18" y="26" fill="{palette["text"]}" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" '
-        f'font-size="16" font-weight="600">{escape(username)} · Chronological Contribution Snake</text>'
+        f'font-size="16" font-weight="600">{escape(username)} · Nearest-Food Contribution Snake</text>'
     )
     out.append(
         f'<text x="18" y="47" fill="{palette["muted"]}" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" '
@@ -627,11 +798,7 @@ def render_svg(
             )
         out.append("</g>")
 
-    # Subtle guide route, then animated growing snake body.
-    out.append(
-        f'<path d="{path_d}" fill="none" stroke="{palette["connector"]}" stroke-width="1" '
-        'stroke-linecap="round" stroke-linejoin="round" opacity="0.16"/>'
-    )
+    # The animated body is the only prominent route visual.
     out.append(
         f'<path d="{path_d}" fill="none" stroke="{palette["snake_outline"]}" stroke-width="10" '
         'stroke-linecap="round" stroke-linejoin="round" opacity="0.55" filter="url(#snake-shadow)" '
@@ -751,8 +918,8 @@ def main() -> int:
         "duration_seconds": args.duration,
         "window_days": len(days),
         "window_start": days[0].date.isoformat(),
-        "ordering": "ascending-date",
-        "route": "orthogonal-cell-grid",
+        "ordering": "nearest-reachable",
+        "route": "nearest-food-grid",
         "growth_rule": "one segment per active contribution day",
     }
     (args.output_dir / "metadata.json").write_text(
