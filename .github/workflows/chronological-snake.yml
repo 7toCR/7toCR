@@ -1,0 +1,66 @@
+name: Generate Chronological Contribution Snake
+
+on:
+  schedule:
+    # 每天北京时间 08:20 更新（UTC 00:20）
+    - cron: "20 0 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/chronological-snake.yml"
+      - "scripts/generate_chronological_snake.py"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: chronological-contribution-snake
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout profile repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate chronological snake SVGs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python scripts/generate_chronological_snake.py \
+            --username 7toCR \
+            --output-dir dist \
+            --max-years 0 \
+            --duration 60 \
+            --light-snake "#2563EB" \
+            --light-outline "#1E40AF" \
+            --dark-snake "#A78BFA" \
+            --dark-outline "#6D28D9" \
+            --growth-per-active-day 7
+
+      - name: Publish generated files to output branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          cd dist
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B output
+          git add .
+          git commit -m "chore: update chronological contribution snake"
+          git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push --force origin output
