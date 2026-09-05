@@ -1,0 +1,862 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="194" viewBox="0 0 740 194" role="img" aria-label="7toCR nearest-food contribution snake">
+<title>Nearest-food GitHub contribution snake</title>
+<desc>Across the 365-day window from 2025-09-06 to 2026-09-05, the snake follows four-direction shortest paths to eat 10 active contribution days; empty cells are traversal space only.</desc>
+<defs>
+<filter id="snake-shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="1.5" stdDeviation="1.4" flood-color="#1E40AF" flood-opacity="0.45"/></filter>
+<filter id="eat-glow" x="-120%" y="-120%" width="340%" height="340%"><feGaussianBlur stdDeviation="2.1" result="blur"/><feFlood flood-color="#F59E0B" flood-opacity="0.9" result="color"/><feComposite in="color" in2="blur" operator="in" result="glow"/><feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="100%" height="100%" rx="12" fill="#ffffff"/>
+<text x="18" y="26" fill="#24292f" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="16" font-weight="600">7toCR · Nearest-Food Contribution Snake</text>
+<text x="18" y="47" fill="#57606a" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="11">last 365 days · 10 active days · 27 contributions</text>
+<text x="31" y="75" fill="#57606a" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="9">Sep</text>
+<text x="83" y="75" fill="#57606a" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="9">Oct</text>
+<text x="135" y="75" fill="#57606a" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="9">Nov</text>
+<text x="200" y="75" fill="#57606a" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="9">Dec</text>
+<text x="252" y="75" fill="#57606a" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="9">Jan '26</text>
+<text x="317" y="75" fill="#57606a" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="9">Feb</text>
+<text x="369" y="75" fill="#57606a" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="9">Mar</text>
+<text x="421" y="75" fill="#57606a" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="9">Apr</text>
+<text x="473" y="75" fill="#57606a" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="9">May</text>
+<text x="538" y="75" fill="#57606a" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="9">Jun</text>
+<text x="590" y="75" fill="#57606a" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="9">Jul</text>
+<text x="642" y="75" fill="#57606a" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="9">Aug</text>
+<text x="707" y="75" fill="#57606a" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,sans-serif" font-size="9">Sep</text>
+<rect x="30" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-06: 0 contributions</title>
+</rect>
+<rect x="43" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-07: 0 contributions</title>
+</rect>
+<rect x="43" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-08: 0 contributions</title>
+</rect>
+<rect x="43" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-09: 0 contributions</title>
+</rect>
+<rect x="43" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-10: 0 contributions</title>
+</rect>
+<rect x="43" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-11: 0 contributions</title>
+</rect>
+<rect x="43" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-12: 0 contributions</title>
+</rect>
+<rect x="43" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-13: 0 contributions</title>
+</rect>
+<rect x="56" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-14: 0 contributions</title>
+</rect>
+<rect x="56" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-15: 0 contributions</title>
+</rect>
+<rect x="56" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-16: 0 contributions</title>
+</rect>
+<rect x="56" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-17: 0 contributions</title>
+</rect>
+<rect x="56" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-18: 0 contributions</title>
+</rect>
+<rect x="56" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-19: 0 contributions</title>
+</rect>
+<rect x="56" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-20: 0 contributions</title>
+</rect>
+<rect x="69" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-21: 0 contributions</title>
+</rect>
+<rect x="69" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-22: 0 contributions</title>
+</rect>
+<rect x="69" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-23: 0 contributions</title>
+</rect>
+<rect x="69" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-24: 0 contributions</title>
+</rect>
+<rect x="69" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-25: 0 contributions</title>
+</rect>
+<rect x="69" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-26: 0 contributions</title>
+</rect>
+<rect x="69" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-27: 0 contributions</title>
+</rect>
+<rect x="82" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-28: 0 contributions</title>
+</rect>
+<rect x="82" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-29: 0 contributions</title>
+</rect>
+<rect x="82" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-09-30: 0 contributions</title>
+</rect>
+<rect x="82" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-01: 0 contributions</title>
+</rect>
+<rect x="82" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-02: 0 contributions</title>
+</rect>
+<rect x="82" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-03: 0 contributions</title>
+</rect>
+<rect x="82" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-04: 0 contributions</title>
+</rect>
+<rect x="95" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-05: 0 contributions</title>
+</rect>
+<rect x="95" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-06: 0 contributions</title>
+</rect>
+<rect x="95" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-07: 0 contributions</title>
+</rect>
+<rect x="95" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-08: 0 contributions</title>
+</rect>
+<rect x="95" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-09: 0 contributions</title>
+</rect>
+<rect x="95" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-10: 0 contributions</title>
+</rect>
+<rect x="95" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-11: 0 contributions</title>
+</rect>
+<rect x="108" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-12: 0 contributions</title>
+</rect>
+<rect x="108" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-13: 0 contributions</title>
+</rect>
+<rect x="108" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-14: 0 contributions</title>
+</rect>
+<rect x="108" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-15: 0 contributions</title>
+</rect>
+<rect x="108" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-16: 0 contributions</title>
+</rect>
+<rect x="108" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-17: 0 contributions</title>
+</rect>
+<rect x="108" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-18: 0 contributions</title>
+</rect>
+<rect x="121" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-19: 0 contributions</title>
+</rect>
+<rect x="121" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-20: 0 contributions</title>
+</rect>
+<rect x="121" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-21: 0 contributions</title>
+</rect>
+<rect x="121" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-22: 0 contributions</title>
+</rect>
+<rect x="121" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-23: 0 contributions</title>
+</rect>
+<rect x="121" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-24: 0 contributions</title>
+</rect>
+<rect x="121" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-25: 0 contributions</title>
+</rect>
+<rect x="134" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-26: 0 contributions</title>
+</rect>
+<rect x="134" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-27: 0 contributions</title>
+</rect>
+<rect x="134" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-28: 0 contributions</title>
+</rect>
+<rect x="134" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-29: 0 contributions</title>
+</rect>
+<rect x="134" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-30: 0 contributions</title>
+</rect>
+<rect x="134" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-10-31: 0 contributions</title>
+</rect>
+<rect x="134" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-01: 0 contributions</title>
+</rect>
+<rect x="147" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-02: 0 contributions</title>
+</rect>
+<rect x="147" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-03: 0 contributions</title>
+</rect>
+<rect x="147" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-04: 0 contributions</title>
+</rect>
+<rect x="147" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-05: 0 contributions</title>
+</rect>
+<rect x="147" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-06: 0 contributions</title>
+</rect>
+<rect x="147" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-07: 0 contributions</title>
+</rect>
+<rect x="147" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-08: 0 contributions</title>
+</rect>
+<rect x="160" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-09: 0 contributions</title>
+</rect>
+<rect x="160" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-10: 0 contributions</title>
+</rect>
+<rect x="160" y="108" width="10" height="10" rx="2" fill="#9be9a8"><title>2025-11-11: 3 contributions</title>
+<animate attributeName="fill" dur="48s" repeatCount="indefinite" values="#9be9a8;#9be9a8;#FDE68A;#ebedf0;#ebedf0" keyTimes="0;0.035;0.039;0.042;1" calcMode="discrete"/>
+<animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="1;1;0.35;1;1" keyTimes="0;0.035;0.039;0.042;1"/>
+</rect>
+<rect x="160" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-12: 0 contributions</title>
+</rect>
+<rect x="160" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-13: 0 contributions</title>
+</rect>
+<rect x="160" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-14: 0 contributions</title>
+</rect>
+<rect x="160" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-15: 0 contributions</title>
+</rect>
+<rect x="173" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-16: 0 contributions</title>
+</rect>
+<rect x="173" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-17: 0 contributions</title>
+</rect>
+<rect x="173" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-18: 0 contributions</title>
+</rect>
+<rect x="173" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-19: 0 contributions</title>
+</rect>
+<rect x="173" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-20: 0 contributions</title>
+</rect>
+<rect x="173" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-21: 0 contributions</title>
+</rect>
+<rect x="173" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-22: 0 contributions</title>
+</rect>
+<rect x="186" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-23: 0 contributions</title>
+</rect>
+<rect x="186" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-24: 0 contributions</title>
+</rect>
+<rect x="186" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-25: 0 contributions</title>
+</rect>
+<rect x="186" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-26: 0 contributions</title>
+</rect>
+<rect x="186" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-27: 0 contributions</title>
+</rect>
+<rect x="186" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-28: 0 contributions</title>
+</rect>
+<rect x="186" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-29: 0 contributions</title>
+</rect>
+<rect x="199" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-11-30: 0 contributions</title>
+</rect>
+<rect x="199" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-01: 0 contributions</title>
+</rect>
+<rect x="199" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-02: 0 contributions</title>
+</rect>
+<rect x="199" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-03: 0 contributions</title>
+</rect>
+<rect x="199" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-04: 0 contributions</title>
+</rect>
+<rect x="199" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-05: 0 contributions</title>
+</rect>
+<rect x="199" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-06: 0 contributions</title>
+</rect>
+<rect x="212" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-07: 0 contributions</title>
+</rect>
+<rect x="212" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-08: 0 contributions</title>
+</rect>
+<rect x="212" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-09: 0 contributions</title>
+</rect>
+<rect x="212" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-10: 0 contributions</title>
+</rect>
+<rect x="212" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-11: 0 contributions</title>
+</rect>
+<rect x="212" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-12: 0 contributions</title>
+</rect>
+<rect x="212" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-13: 0 contributions</title>
+</rect>
+<rect x="225" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-14: 0 contributions</title>
+</rect>
+<rect x="225" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-15: 0 contributions</title>
+</rect>
+<rect x="225" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-16: 0 contributions</title>
+</rect>
+<rect x="225" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-17: 0 contributions</title>
+</rect>
+<rect x="225" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-18: 0 contributions</title>
+</rect>
+<rect x="225" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-19: 0 contributions</title>
+</rect>
+<rect x="225" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-20: 0 contributions</title>
+</rect>
+<rect x="238" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-21: 0 contributions</title>
+</rect>
+<rect x="238" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-22: 0 contributions</title>
+</rect>
+<rect x="238" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-23: 0 contributions</title>
+</rect>
+<rect x="238" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-24: 0 contributions</title>
+</rect>
+<rect x="238" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-25: 0 contributions</title>
+</rect>
+<rect x="238" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-26: 0 contributions</title>
+</rect>
+<rect x="238" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-27: 0 contributions</title>
+</rect>
+<rect x="251" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-28: 0 contributions</title>
+</rect>
+<rect x="251" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-29: 0 contributions</title>
+</rect>
+<rect x="251" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-30: 0 contributions</title>
+</rect>
+<rect x="251" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2025-12-31: 0 contributions</title>
+</rect>
+<rect x="251" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-01: 0 contributions</title>
+</rect>
+<rect x="251" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-02: 0 contributions</title>
+</rect>
+<rect x="251" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-03: 0 contributions</title>
+</rect>
+<rect x="264" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-04: 0 contributions</title>
+</rect>
+<rect x="264" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-05: 0 contributions</title>
+</rect>
+<rect x="264" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-06: 0 contributions</title>
+</rect>
+<rect x="264" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-07: 0 contributions</title>
+</rect>
+<rect x="264" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-08: 0 contributions</title>
+</rect>
+<rect x="264" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-09: 0 contributions</title>
+</rect>
+<rect x="264" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-10: 0 contributions</title>
+</rect>
+<rect x="277" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-11: 0 contributions</title>
+</rect>
+<rect x="277" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-12: 0 contributions</title>
+</rect>
+<rect x="277" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-13: 0 contributions</title>
+</rect>
+<rect x="277" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-14: 0 contributions</title>
+</rect>
+<rect x="277" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-15: 0 contributions</title>
+</rect>
+<rect x="277" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-16: 0 contributions</title>
+</rect>
+<rect x="277" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-17: 0 contributions</title>
+</rect>
+<rect x="290" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-18: 0 contributions</title>
+</rect>
+<rect x="290" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-19: 0 contributions</title>
+</rect>
+<rect x="290" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-20: 0 contributions</title>
+</rect>
+<rect x="290" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-21: 0 contributions</title>
+</rect>
+<rect x="290" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-22: 0 contributions</title>
+</rect>
+<rect x="290" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-23: 0 contributions</title>
+</rect>
+<rect x="290" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-24: 0 contributions</title>
+</rect>
+<rect x="303" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-25: 0 contributions</title>
+</rect>
+<rect x="303" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-26: 0 contributions</title>
+</rect>
+<rect x="303" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-27: 0 contributions</title>
+</rect>
+<rect x="303" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-28: 0 contributions</title>
+</rect>
+<rect x="303" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-29: 0 contributions</title>
+</rect>
+<rect x="303" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-30: 0 contributions</title>
+</rect>
+<rect x="303" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-01-31: 0 contributions</title>
+</rect>
+<rect x="316" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-01: 0 contributions</title>
+</rect>
+<rect x="316" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-02: 0 contributions</title>
+</rect>
+<rect x="316" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-03: 0 contributions</title>
+</rect>
+<rect x="316" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-04: 0 contributions</title>
+</rect>
+<rect x="316" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-05: 0 contributions</title>
+</rect>
+<rect x="316" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-06: 0 contributions</title>
+</rect>
+<rect x="316" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-07: 0 contributions</title>
+</rect>
+<rect x="329" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-08: 0 contributions</title>
+</rect>
+<rect x="329" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-09: 0 contributions</title>
+</rect>
+<rect x="329" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-10: 0 contributions</title>
+</rect>
+<rect x="329" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-11: 0 contributions</title>
+</rect>
+<rect x="329" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-12: 0 contributions</title>
+</rect>
+<rect x="329" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-13: 0 contributions</title>
+</rect>
+<rect x="329" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-14: 0 contributions</title>
+</rect>
+<rect x="342" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-15: 0 contributions</title>
+</rect>
+<rect x="342" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-16: 0 contributions</title>
+</rect>
+<rect x="342" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-17: 0 contributions</title>
+</rect>
+<rect x="342" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-18: 0 contributions</title>
+</rect>
+<rect x="342" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-19: 0 contributions</title>
+</rect>
+<rect x="342" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-20: 0 contributions</title>
+</rect>
+<rect x="342" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-21: 0 contributions</title>
+</rect>
+<rect x="355" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-22: 0 contributions</title>
+</rect>
+<rect x="355" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-23: 0 contributions</title>
+</rect>
+<rect x="355" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-24: 0 contributions</title>
+</rect>
+<rect x="355" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-25: 0 contributions</title>
+</rect>
+<rect x="355" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-26: 0 contributions</title>
+</rect>
+<rect x="355" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-27: 0 contributions</title>
+</rect>
+<rect x="355" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-02-28: 0 contributions</title>
+</rect>
+<rect x="368" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-01: 0 contributions</title>
+</rect>
+<rect x="368" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-02: 0 contributions</title>
+</rect>
+<rect x="368" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-03: 0 contributions</title>
+</rect>
+<rect x="368" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-04: 0 contributions</title>
+</rect>
+<rect x="368" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-05: 0 contributions</title>
+</rect>
+<rect x="368" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-06: 0 contributions</title>
+</rect>
+<rect x="368" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-07: 0 contributions</title>
+</rect>
+<rect x="381" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-08: 0 contributions</title>
+</rect>
+<rect x="381" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-09: 0 contributions</title>
+</rect>
+<rect x="381" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-10: 0 contributions</title>
+</rect>
+<rect x="381" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-11: 0 contributions</title>
+</rect>
+<rect x="381" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-12: 0 contributions</title>
+</rect>
+<rect x="381" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-13: 0 contributions</title>
+</rect>
+<rect x="381" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-14: 0 contributions</title>
+</rect>
+<rect x="394" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-15: 0 contributions</title>
+</rect>
+<rect x="394" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-16: 0 contributions</title>
+</rect>
+<rect x="394" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-17: 0 contributions</title>
+</rect>
+<rect x="394" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-18: 0 contributions</title>
+</rect>
+<rect x="394" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-19: 0 contributions</title>
+</rect>
+<rect x="394" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-20: 0 contributions</title>
+</rect>
+<rect x="394" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-21: 0 contributions</title>
+</rect>
+<rect x="407" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-22: 0 contributions</title>
+</rect>
+<rect x="407" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-23: 0 contributions</title>
+</rect>
+<rect x="407" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-24: 0 contributions</title>
+</rect>
+<rect x="407" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-25: 0 contributions</title>
+</rect>
+<rect x="407" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-26: 0 contributions</title>
+</rect>
+<rect x="407" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-27: 0 contributions</title>
+</rect>
+<rect x="407" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-28: 0 contributions</title>
+</rect>
+<rect x="420" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-29: 0 contributions</title>
+</rect>
+<rect x="420" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-30: 0 contributions</title>
+</rect>
+<rect x="420" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-03-31: 0 contributions</title>
+</rect>
+<rect x="420" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-01: 0 contributions</title>
+</rect>
+<rect x="420" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-02: 0 contributions</title>
+</rect>
+<rect x="420" y="147" width="10" height="10" rx="2" fill="#216e39"><title>2026-04-03: 13 contributions</title>
+<animate attributeName="fill" dur="48s" repeatCount="indefinite" values="#216e39;#216e39;#FDE68A;#ebedf0;#ebedf0" keyTimes="0;0.366;0.37;0.373;1" calcMode="discrete"/>
+<animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="1;1;0.35;1;1" keyTimes="0;0.366;0.37;0.373;1"/>
+</rect>
+<rect x="420" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-04: 0 contributions</title>
+</rect>
+<rect x="433" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-05: 0 contributions</title>
+</rect>
+<rect x="433" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-06: 0 contributions</title>
+</rect>
+<rect x="433" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-07: 0 contributions</title>
+</rect>
+<rect x="433" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-08: 0 contributions</title>
+</rect>
+<rect x="433" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-09: 0 contributions</title>
+</rect>
+<rect x="433" y="147" width="10" height="10" rx="2" fill="#9be9a8"><title>2026-04-10: 1 contribution</title>
+<animate attributeName="fill" dur="48s" repeatCount="indefinite" values="#9be9a8;#9be9a8;#FDE68A;#ebedf0;#ebedf0" keyTimes="0;0.385;0.389;0.392;1" calcMode="discrete"/>
+<animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="1;1;0.35;1;1" keyTimes="0;0.385;0.389;0.392;1"/>
+</rect>
+<rect x="433" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-11: 0 contributions</title>
+</rect>
+<rect x="446" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-12: 0 contributions</title>
+</rect>
+<rect x="446" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-13: 0 contributions</title>
+</rect>
+<rect x="446" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-14: 0 contributions</title>
+</rect>
+<rect x="446" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-15: 0 contributions</title>
+</rect>
+<rect x="446" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-16: 0 contributions</title>
+</rect>
+<rect x="446" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-17: 0 contributions</title>
+</rect>
+<rect x="446" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-18: 0 contributions</title>
+</rect>
+<rect x="459" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-19: 0 contributions</title>
+</rect>
+<rect x="459" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-20: 0 contributions</title>
+</rect>
+<rect x="459" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-21: 0 contributions</title>
+</rect>
+<rect x="459" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-22: 0 contributions</title>
+</rect>
+<rect x="459" y="134" width="10" height="10" rx="2" fill="#9be9a8"><title>2026-04-23: 1 contribution</title>
+<animate attributeName="fill" dur="48s" repeatCount="indefinite" values="#9be9a8;#9be9a8;#FDE68A;#ebedf0;#ebedf0" keyTimes="0;0.432;0.436;0.439;1" calcMode="discrete"/>
+<animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="1;1;0.35;1;1" keyTimes="0;0.432;0.436;0.439;1"/>
+</rect>
+<rect x="459" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-24: 0 contributions</title>
+</rect>
+<rect x="459" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-25: 0 contributions</title>
+</rect>
+<rect x="472" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-26: 0 contributions</title>
+</rect>
+<rect x="472" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-27: 0 contributions</title>
+</rect>
+<rect x="472" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-28: 0 contributions</title>
+</rect>
+<rect x="472" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-29: 0 contributions</title>
+</rect>
+<rect x="472" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-04-30: 0 contributions</title>
+</rect>
+<rect x="472" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-01: 0 contributions</title>
+</rect>
+<rect x="472" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-02: 0 contributions</title>
+</rect>
+<rect x="485" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-03: 0 contributions</title>
+</rect>
+<rect x="485" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-04: 0 contributions</title>
+</rect>
+<rect x="485" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-05: 0 contributions</title>
+</rect>
+<rect x="485" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-06: 0 contributions</title>
+</rect>
+<rect x="485" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-07: 0 contributions</title>
+</rect>
+<rect x="485" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-08: 0 contributions</title>
+</rect>
+<rect x="485" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-09: 0 contributions</title>
+</rect>
+<rect x="498" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-10: 0 contributions</title>
+</rect>
+<rect x="498" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-11: 0 contributions</title>
+</rect>
+<rect x="498" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-12: 0 contributions</title>
+</rect>
+<rect x="498" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-13: 0 contributions</title>
+</rect>
+<rect x="498" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-14: 0 contributions</title>
+</rect>
+<rect x="498" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-15: 0 contributions</title>
+</rect>
+<rect x="498" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-16: 0 contributions</title>
+</rect>
+<rect x="511" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-17: 0 contributions</title>
+</rect>
+<rect x="511" y="95" width="10" height="10" rx="2" fill="#9be9a8"><title>2026-05-18: 1 contribution</title>
+<animate attributeName="fill" dur="48s" repeatCount="indefinite" values="#9be9a8;#9be9a8;#FDE68A;#ebedf0;#ebedf0" keyTimes="0;0.541;0.545;0.548;1" calcMode="discrete"/>
+<animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="1;1;0.35;1;1" keyTimes="0;0.541;0.545;0.548;1"/>
+</rect>
+<rect x="511" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-19: 0 contributions</title>
+</rect>
+<rect x="511" y="121" width="10" height="10" rx="2" fill="#9be9a8"><title>2026-05-20: 3 contributions</title>
+<animate attributeName="fill" dur="48s" repeatCount="indefinite" values="#9be9a8;#9be9a8;#FDE68A;#ebedf0;#ebedf0" keyTimes="0;0.508;0.512;0.515;1" calcMode="discrete"/>
+<animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="1;1;0.35;1;1" keyTimes="0;0.508;0.512;0.515;1"/>
+</rect>
+<rect x="511" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-21: 0 contributions</title>
+</rect>
+<rect x="511" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-22: 0 contributions</title>
+</rect>
+<rect x="511" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-23: 0 contributions</title>
+</rect>
+<rect x="524" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-24: 0 contributions</title>
+</rect>
+<rect x="524" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-25: 0 contributions</title>
+</rect>
+<rect x="524" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-26: 0 contributions</title>
+</rect>
+<rect x="524" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-27: 0 contributions</title>
+</rect>
+<rect x="524" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-28: 0 contributions</title>
+</rect>
+<rect x="524" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-29: 0 contributions</title>
+</rect>
+<rect x="524" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-30: 0 contributions</title>
+</rect>
+<rect x="537" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-05-31: 0 contributions</title>
+</rect>
+<rect x="537" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-01: 0 contributions</title>
+</rect>
+<rect x="537" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-02: 0 contributions</title>
+</rect>
+<rect x="537" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-03: 0 contributions</title>
+</rect>
+<rect x="537" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-04: 0 contributions</title>
+</rect>
+<rect x="537" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-05: 0 contributions</title>
+</rect>
+<rect x="537" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-06: 0 contributions</title>
+</rect>
+<rect x="550" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-07: 0 contributions</title>
+</rect>
+<rect x="550" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-08: 0 contributions</title>
+</rect>
+<rect x="550" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-09: 0 contributions</title>
+</rect>
+<rect x="550" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-10: 0 contributions</title>
+</rect>
+<rect x="550" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-11: 0 contributions</title>
+</rect>
+<rect x="550" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-12: 0 contributions</title>
+</rect>
+<rect x="550" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-13: 0 contributions</title>
+</rect>
+<rect x="563" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-14: 0 contributions</title>
+</rect>
+<rect x="563" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-15: 0 contributions</title>
+</rect>
+<rect x="563" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-16: 0 contributions</title>
+</rect>
+<rect x="563" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-17: 0 contributions</title>
+</rect>
+<rect x="563" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-18: 0 contributions</title>
+</rect>
+<rect x="563" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-19: 0 contributions</title>
+</rect>
+<rect x="563" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-20: 0 contributions</title>
+</rect>
+<rect x="576" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-21: 0 contributions</title>
+</rect>
+<rect x="576" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-22: 0 contributions</title>
+</rect>
+<rect x="576" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-23: 0 contributions</title>
+</rect>
+<rect x="576" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-24: 0 contributions</title>
+</rect>
+<rect x="576" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-25: 0 contributions</title>
+</rect>
+<rect x="576" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-26: 0 contributions</title>
+</rect>
+<rect x="576" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-27: 0 contributions</title>
+</rect>
+<rect x="589" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-28: 0 contributions</title>
+</rect>
+<rect x="589" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-29: 0 contributions</title>
+</rect>
+<rect x="589" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-06-30: 0 contributions</title>
+</rect>
+<rect x="589" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-01: 0 contributions</title>
+</rect>
+<rect x="589" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-02: 0 contributions</title>
+</rect>
+<rect x="589" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-03: 0 contributions</title>
+</rect>
+<rect x="589" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-04: 0 contributions</title>
+</rect>
+<rect x="602" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-05: 0 contributions</title>
+</rect>
+<rect x="602" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-06: 0 contributions</title>
+</rect>
+<rect x="602" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-07: 0 contributions</title>
+</rect>
+<rect x="602" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-08: 0 contributions</title>
+</rect>
+<rect x="602" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-09: 0 contributions</title>
+</rect>
+<rect x="602" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-10: 0 contributions</title>
+</rect>
+<rect x="602" y="160" width="10" height="10" rx="2" fill="#9be9a8"><title>2026-07-11: 2 contributions</title>
+<animate attributeName="fill" dur="48s" repeatCount="indefinite" values="#9be9a8;#9be9a8;#FDE68A;#ebedf0;#ebedf0" keyTimes="0;0.958;0.962;0.965;1" calcMode="discrete"/>
+<animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="1;1;0.35;1;1" keyTimes="0;0.958;0.962;0.965;1"/>
+</rect>
+<rect x="615" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-12: 0 contributions</title>
+</rect>
+<rect x="615" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-13: 0 contributions</title>
+</rect>
+<rect x="615" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-14: 0 contributions</title>
+</rect>
+<rect x="615" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-15: 0 contributions</title>
+</rect>
+<rect x="615" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-16: 0 contributions</title>
+</rect>
+<rect x="615" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-17: 0 contributions</title>
+</rect>
+<rect x="615" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-18: 0 contributions</title>
+</rect>
+<rect x="628" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-19: 0 contributions</title>
+</rect>
+<rect x="628" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-20: 0 contributions</title>
+</rect>
+<rect x="628" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-21: 0 contributions</title>
+</rect>
+<rect x="628" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-22: 0 contributions</title>
+</rect>
+<rect x="628" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-23: 0 contributions</title>
+</rect>
+<rect x="628" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-24: 0 contributions</title>
+</rect>
+<rect x="628" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-25: 0 contributions</title>
+</rect>
+<rect x="641" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-26: 0 contributions</title>
+</rect>
+<rect x="641" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-27: 0 contributions</title>
+</rect>
+<rect x="641" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-28: 0 contributions</title>
+</rect>
+<rect x="641" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-29: 0 contributions</title>
+</rect>
+<rect x="641" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-30: 0 contributions</title>
+</rect>
+<rect x="641" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-07-31: 0 contributions</title>
+</rect>
+<rect x="641" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-01: 0 contributions</title>
+</rect>
+<rect x="654" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-02: 0 contributions</title>
+</rect>
+<rect x="654" y="95" width="10" height="10" rx="2" fill="#9be9a8"><title>2026-08-03: 1 contribution</title>
+<animate attributeName="fill" dur="48s" repeatCount="indefinite" values="#9be9a8;#9be9a8;#FDE68A;#ebedf0;#ebedf0" keyTimes="0;0.702;0.706;0.709;1" calcMode="discrete"/>
+<animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="1;1;0.35;1;1" keyTimes="0;0.702;0.706;0.709;1"/>
+</rect>
+<rect x="654" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-04: 0 contributions</title>
+</rect>
+<rect x="654" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-05: 0 contributions</title>
+</rect>
+<rect x="654" y="134" width="10" height="10" rx="2" fill="#9be9a8"><title>2026-08-06: 1 contribution</title>
+<animate attributeName="fill" dur="48s" repeatCount="indefinite" values="#9be9a8;#9be9a8;#FDE68A;#ebedf0;#ebedf0" keyTimes="0;0.75;0.754;0.757;1" calcMode="discrete"/>
+<animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="1;1;0.35;1;1" keyTimes="0;0.75;0.754;0.757;1"/>
+</rect>
+<rect x="654" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-07: 0 contributions</title>
+</rect>
+<rect x="654" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-08: 0 contributions</title>
+</rect>
+<rect x="667" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-09: 0 contributions</title>
+</rect>
+<rect x="667" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-10: 0 contributions</title>
+</rect>
+<rect x="667" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-11: 0 contributions</title>
+</rect>
+<rect x="667" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-12: 0 contributions</title>
+</rect>
+<rect x="667" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-13: 0 contributions</title>
+</rect>
+<rect x="667" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-14: 0 contributions</title>
+</rect>
+<rect x="667" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-15: 0 contributions</title>
+</rect>
+<rect x="680" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-16: 0 contributions</title>
+</rect>
+<rect x="680" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-17: 0 contributions</title>
+</rect>
+<rect x="680" y="108" width="10" height="10" rx="2" fill="#9be9a8"><title>2026-08-18: 1 contribution</title>
+<animate attributeName="fill" dur="48s" repeatCount="indefinite" values="#9be9a8;#9be9a8;#FDE68A;#ebedf0;#ebedf0" keyTimes="0;0.811;0.815;0.818;1" calcMode="discrete"/>
+<animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="1;1;0.35;1;1" keyTimes="0;0.811;0.815;0.818;1"/>
+</rect>
+<rect x="680" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-19: 0 contributions</title>
+</rect>
+<rect x="680" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-20: 0 contributions</title>
+</rect>
+<rect x="680" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-21: 0 contributions</title>
+</rect>
+<rect x="680" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-22: 0 contributions</title>
+</rect>
+<rect x="693" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-23: 0 contributions</title>
+</rect>
+<rect x="693" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-24: 0 contributions</title>
+</rect>
+<rect x="693" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-25: 0 contributions</title>
+</rect>
+<rect x="693" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-26: 0 contributions</title>
+</rect>
+<rect x="693" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-27: 0 contributions</title>
+</rect>
+<rect x="693" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-28: 0 contributions</title>
+</rect>
+<rect x="693" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-29: 0 contributions</title>
+</rect>
+<rect x="706" y="82" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-30: 0 contributions</title>
+</rect>
+<rect x="706" y="95" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-08-31: 0 contributions</title>
+</rect>
+<rect x="706" y="108" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-09-01: 0 contributions</title>
+</rect>
+<rect x="706" y="121" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-09-02: 0 contributions</title>
+</rect>
+<rect x="706" y="134" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-09-03: 0 contributions</title>
+</rect>
+<rect x="706" y="147" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-09-04: 0 contributions</title>
+</rect>
+<rect x="706" y="160" width="10" height="10" rx="2" fill="#ebedf0"><title>2026-09-05: 0 contributions</title>
+</rect>
+<g transform="translate(165 113)" pointer-events="none" filter="url(#eat-glow)">
+<circle cx="0" cy="0" r="2.4" fill="none" stroke="#F59E0B" stroke-width="1.4"><animate attributeName="r" dur="48s" repeatCount="indefinite" values="2.4;2.4;7.5;10" keyTimes="0;0.038;0.042;0.048;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;0.95;0;0" keyTimes="0;0.038;0.042;0.048;1"/></circle>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;-7 0;-10.15 0" keyTimes="0;0.038;0.042;0.048;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.038;0.042;0.048;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;7 0;10.15 0" keyTimes="0;0.038;0.042;0.048;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.038;0.042;0.048;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 -7;0 -10.15" keyTimes="0;0.038;0.042;0.048;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.038;0.042;0.048;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 7;0 10.15" keyTimes="0;0.038;0.042;0.048;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.038;0.042;0.048;1"/></rect>
+</g>
+<g transform="translate(425 152)" pointer-events="none" filter="url(#eat-glow)">
+<circle cx="0" cy="0" r="2.4" fill="none" stroke="#F59E0B" stroke-width="1.4"><animate attributeName="r" dur="48s" repeatCount="indefinite" values="2.4;2.4;7.5;10" keyTimes="0;0.369;0.373;0.379;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;0.95;0;0" keyTimes="0;0.369;0.373;0.379;1"/></circle>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;-7 0;-10.15 0" keyTimes="0;0.369;0.373;0.379;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.369;0.373;0.379;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;7 0;10.15 0" keyTimes="0;0.369;0.373;0.379;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.369;0.373;0.379;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 -7;0 -10.15" keyTimes="0;0.369;0.373;0.379;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.369;0.373;0.379;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 7;0 10.15" keyTimes="0;0.369;0.373;0.379;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.369;0.373;0.379;1"/></rect>
+</g>
+<g transform="translate(438 152)" pointer-events="none" filter="url(#eat-glow)">
+<circle cx="0" cy="0" r="2.4" fill="none" stroke="#F59E0B" stroke-width="1.4"><animate attributeName="r" dur="48s" repeatCount="indefinite" values="2.4;2.4;7.5;10" keyTimes="0;0.388;0.392;0.398;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;0.95;0;0" keyTimes="0;0.388;0.392;0.398;1"/></circle>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;-7 0;-10.15 0" keyTimes="0;0.388;0.392;0.398;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.388;0.392;0.398;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;7 0;10.15 0" keyTimes="0;0.388;0.392;0.398;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.388;0.392;0.398;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 -7;0 -10.15" keyTimes="0;0.388;0.392;0.398;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.388;0.392;0.398;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 7;0 10.15" keyTimes="0;0.388;0.392;0.398;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.388;0.392;0.398;1"/></rect>
+</g>
+<g transform="translate(464 139)" pointer-events="none" filter="url(#eat-glow)">
+<circle cx="0" cy="0" r="2.4" fill="none" stroke="#F59E0B" stroke-width="1.4"><animate attributeName="r" dur="48s" repeatCount="indefinite" values="2.4;2.4;7.5;10" keyTimes="0;0.435;0.439;0.445;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;0.95;0;0" keyTimes="0;0.435;0.439;0.445;1"/></circle>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;-7 0;-10.15 0" keyTimes="0;0.435;0.439;0.445;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.435;0.439;0.445;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;7 0;10.15 0" keyTimes="0;0.435;0.439;0.445;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.435;0.439;0.445;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 -7;0 -10.15" keyTimes="0;0.435;0.439;0.445;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.435;0.439;0.445;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 7;0 10.15" keyTimes="0;0.435;0.439;0.445;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.435;0.439;0.445;1"/></rect>
+</g>
+<g transform="translate(516 100)" pointer-events="none" filter="url(#eat-glow)">
+<circle cx="0" cy="0" r="2.4" fill="none" stroke="#F59E0B" stroke-width="1.4"><animate attributeName="r" dur="48s" repeatCount="indefinite" values="2.4;2.4;7.5;10" keyTimes="0;0.544;0.548;0.554;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;0.95;0;0" keyTimes="0;0.544;0.548;0.554;1"/></circle>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;-7 0;-10.15 0" keyTimes="0;0.544;0.548;0.554;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.544;0.548;0.554;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;7 0;10.15 0" keyTimes="0;0.544;0.548;0.554;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.544;0.548;0.554;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 -7;0 -10.15" keyTimes="0;0.544;0.548;0.554;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.544;0.548;0.554;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 7;0 10.15" keyTimes="0;0.544;0.548;0.554;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.544;0.548;0.554;1"/></rect>
+</g>
+<g transform="translate(516 126)" pointer-events="none" filter="url(#eat-glow)">
+<circle cx="0" cy="0" r="2.4" fill="none" stroke="#F59E0B" stroke-width="1.4"><animate attributeName="r" dur="48s" repeatCount="indefinite" values="2.4;2.4;7.5;10" keyTimes="0;0.511;0.515;0.521;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;0.95;0;0" keyTimes="0;0.511;0.515;0.521;1"/></circle>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;-7 0;-10.15 0" keyTimes="0;0.511;0.515;0.521;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.511;0.515;0.521;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;7 0;10.15 0" keyTimes="0;0.511;0.515;0.521;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.511;0.515;0.521;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 -7;0 -10.15" keyTimes="0;0.511;0.515;0.521;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.511;0.515;0.521;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 7;0 10.15" keyTimes="0;0.511;0.515;0.521;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.511;0.515;0.521;1"/></rect>
+</g>
+<g transform="translate(607 165)" pointer-events="none" filter="url(#eat-glow)">
+<circle cx="0" cy="0" r="2.4" fill="none" stroke="#F59E0B" stroke-width="1.4"><animate attributeName="r" dur="48s" repeatCount="indefinite" values="2.4;2.4;7.5;10" keyTimes="0;0.961;0.965;0.971;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;0.95;0;0" keyTimes="0;0.961;0.965;0.971;1"/></circle>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;-7 0;-10.15 0" keyTimes="0;0.961;0.965;0.971;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.961;0.965;0.971;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;7 0;10.15 0" keyTimes="0;0.961;0.965;0.971;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.961;0.965;0.971;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 -7;0 -10.15" keyTimes="0;0.961;0.965;0.971;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.961;0.965;0.971;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 7;0 10.15" keyTimes="0;0.961;0.965;0.971;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.961;0.965;0.971;1"/></rect>
+</g>
+<g transform="translate(659 100)" pointer-events="none" filter="url(#eat-glow)">
+<circle cx="0" cy="0" r="2.4" fill="none" stroke="#F59E0B" stroke-width="1.4"><animate attributeName="r" dur="48s" repeatCount="indefinite" values="2.4;2.4;7.5;10" keyTimes="0;0.705;0.709;0.715;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;0.95;0;0" keyTimes="0;0.705;0.709;0.715;1"/></circle>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;-7 0;-10.15 0" keyTimes="0;0.705;0.709;0.715;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.705;0.709;0.715;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;7 0;10.15 0" keyTimes="0;0.705;0.709;0.715;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.705;0.709;0.715;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 -7;0 -10.15" keyTimes="0;0.705;0.709;0.715;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.705;0.709;0.715;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 7;0 10.15" keyTimes="0;0.705;0.709;0.715;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.705;0.709;0.715;1"/></rect>
+</g>
+<g transform="translate(659 139)" pointer-events="none" filter="url(#eat-glow)">
+<circle cx="0" cy="0" r="2.4" fill="none" stroke="#F59E0B" stroke-width="1.4"><animate attributeName="r" dur="48s" repeatCount="indefinite" values="2.4;2.4;7.5;10" keyTimes="0;0.753;0.757;0.763;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;0.95;0;0" keyTimes="0;0.753;0.757;0.763;1"/></circle>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;-7 0;-10.15 0" keyTimes="0;0.753;0.757;0.763;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.753;0.757;0.763;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;7 0;10.15 0" keyTimes="0;0.753;0.757;0.763;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.753;0.757;0.763;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 -7;0 -10.15" keyTimes="0;0.753;0.757;0.763;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.753;0.757;0.763;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 7;0 10.15" keyTimes="0;0.753;0.757;0.763;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.753;0.757;0.763;1"/></rect>
+</g>
+<g transform="translate(685 113)" pointer-events="none" filter="url(#eat-glow)">
+<circle cx="0" cy="0" r="2.4" fill="none" stroke="#F59E0B" stroke-width="1.4"><animate attributeName="r" dur="48s" repeatCount="indefinite" values="2.4;2.4;7.5;10" keyTimes="0;0.814;0.818;0.824;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;0.95;0;0" keyTimes="0;0.814;0.818;0.824;1"/></circle>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;-7 0;-10.15 0" keyTimes="0;0.814;0.818;0.824;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.814;0.818;0.824;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;7 0;10.15 0" keyTimes="0;0.814;0.818;0.824;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.814;0.818;0.824;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 -7;0 -10.15" keyTimes="0;0.814;0.818;0.824;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.814;0.818;0.824;1"/></rect>
+<rect x="-1.25" y="-1.25" width="2.5" height="2.5" rx="0.6" fill="#FDE68A"><animateTransform attributeName="transform" type="translate" dur="48s" repeatCount="indefinite" values="0 0;0 0;0 7;0 10.15" keyTimes="0;0.814;0.818;0.824;1"/><animate attributeName="opacity" dur="48s" repeatCount="indefinite" values="0;0;1;0;0" keyTimes="0;0.814;0.818;0.824;1"/></rect>
+</g>
+<path d="M 152 113 L 165 113 L 178 113 L 191 113 L 204 113 L 217 113 L 230 113 L 243 113 L 256 113 L 269 113 L 282 113 L 295 113 L 308 113 L 321 113 L 334 113 L 347 113 L 360 113 L 373 113 L 386 113 L 399 113 L 412 113 L 425 113 L 425 126 L 425 139 L 425 152 L 438 152 L 438 139 L 451 139 L 464 139 L 464 126 L 477 126 L 490 126 L 503 126 L 516 126 L 516 113 L 516 100 L 529 100 L 542 100 L 555 100 L 568 100 L 581 100 L 594 100 L 607 100 L 620 100 L 633 100 L 646 100 L 659 100 L 659 113 L 659 126 L 659 139 L 659 126 L 659 113 L 672 113 L 685 113 L 672 113 L 659 113 L 646 113 L 633 113 L 620 113 L 607 113 L 607 126 L 607 139 L 607 152 L 607 165" fill="none" stroke="#1E40AF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity="0.55" filter="url(#snake-shadow)" stroke-dasharray="0.01 820" stroke-dashoffset="-0">
+<animate attributeName="stroke-dasharray" dur="48s" repeatCount="indefinite" values="0.01 820;0.01 820;13 820;13 820;26 820;39 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;48 820;48 820;55 820;55 820;55 820;55 820;62 820;62 820;62 820;62 820;62 820;62 820;69 820;69 820;69 820;76 820;76 820;76 820;76 820;76 820;76 820;76 820;76 820;76 820;76 820;76 820;76 820;83 820;83 820;83 820;83 820;90 820;90 820;90 820;90 820;90 820;97 820;97 820;97 820;97 820;97 820;97 820;97 820;97 820;97 820;97 820;97 820;104 820;104 820;104 820" keyTimes="0;0.025;0.039;0.044;0.058;0.072;0.087;0.101;0.115;0.129;0.143;0.157;0.172;0.186;0.2;0.214;0.228;0.242;0.256;0.271;0.285;0.299;0.313;0.327;0.341;0.356;0.37;0.375;0.389;0.394;0.408;0.422;0.436;0.441;0.455;0.47;0.484;0.498;0.512;0.517;0.531;0.545;0.55;0.565;0.579;0.593;0.607;0.621;0.635;0.649;0.664;0.678;0.692;0.706;0.711;0.725;0.739;0.754;0.759;0.773;0.787;0.801;0.815;0.82;0.834;0.848;0.863;0.877;0.891;0.905;0.919;0.933;0.948;0.962;0.967;1" calcMode="linear"/>
+<animate attributeName="stroke-dashoffset" dur="48s" repeatCount="indefinite" values="-0;-0;-0;-0;-0;-0;-11;-24;-37;-50;-63;-76;-89;-102;-115;-128;-141;-154;-167;-180;-193;-206;-219;-232;-245;-258;-264;-264;-270;-270;-283;-296;-302;-302;-315;-328;-341;-354;-360;-360;-373;-379;-379;-392;-405;-418;-431;-444;-457;-470;-483;-496;-509;-515;-515;-528;-541;-547;-547;-560;-573;-586;-592;-592;-605;-618;-631;-644;-657;-670;-683;-696;-709;-715;-715;-715" keyTimes="0;0.025;0.039;0.044;0.058;0.072;0.087;0.101;0.115;0.129;0.143;0.157;0.172;0.186;0.2;0.214;0.228;0.242;0.256;0.271;0.285;0.299;0.313;0.327;0.341;0.356;0.37;0.375;0.389;0.394;0.408;0.422;0.436;0.441;0.455;0.47;0.484;0.498;0.512;0.517;0.531;0.545;0.55;0.565;0.579;0.593;0.607;0.621;0.635;0.649;0.664;0.678;0.692;0.706;0.711;0.725;0.739;0.754;0.759;0.773;0.787;0.801;0.815;0.82;0.834;0.848;0.863;0.877;0.891;0.905;0.919;0.933;0.948;0.962;0.967;1" calcMode="linear"/>
+</path>
+<path d="M 152 113 L 165 113 L 178 113 L 191 113 L 204 113 L 217 113 L 230 113 L 243 113 L 256 113 L 269 113 L 282 113 L 295 113 L 308 113 L 321 113 L 334 113 L 347 113 L 360 113 L 373 113 L 386 113 L 399 113 L 412 113 L 425 113 L 425 126 L 425 139 L 425 152 L 438 152 L 438 139 L 451 139 L 464 139 L 464 126 L 477 126 L 490 126 L 503 126 L 516 126 L 516 113 L 516 100 L 529 100 L 542 100 L 555 100 L 568 100 L 581 100 L 594 100 L 607 100 L 620 100 L 633 100 L 646 100 L 659 100 L 659 113 L 659 126 L 659 139 L 659 126 L 659 113 L 672 113 L 685 113 L 672 113 L 659 113 L 646 113 L 633 113 L 620 113 L 607 113 L 607 126 L 607 139 L 607 152 L 607 165" fill="none" stroke="#2563EB" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.01 820" stroke-dashoffset="-0">
+<animate attributeName="stroke-dasharray" dur="48s" repeatCount="indefinite" values="0.01 820;0.01 820;13 820;13 820;26 820;39 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;41 820;48 820;48 820;55 820;55 820;55 820;55 820;62 820;62 820;62 820;62 820;62 820;62 820;69 820;69 820;69 820;76 820;76 820;76 820;76 820;76 820;76 820;76 820;76 820;76 820;76 820;76 820;76 820;83 820;83 820;83 820;83 820;90 820;90 820;90 820;90 820;90 820;97 820;97 820;97 820;97 820;97 820;97 820;97 820;97 820;97 820;97 820;97 820;104 820;104 820;104 820" keyTimes="0;0.025;0.039;0.044;0.058;0.072;0.087;0.101;0.115;0.129;0.143;0.157;0.172;0.186;0.2;0.214;0.228;0.242;0.256;0.271;0.285;0.299;0.313;0.327;0.341;0.356;0.37;0.375;0.389;0.394;0.408;0.422;0.436;0.441;0.455;0.47;0.484;0.498;0.512;0.517;0.531;0.545;0.55;0.565;0.579;0.593;0.607;0.621;0.635;0.649;0.664;0.678;0.692;0.706;0.711;0.725;0.739;0.754;0.759;0.773;0.787;0.801;0.815;0.82;0.834;0.848;0.863;0.877;0.891;0.905;0.919;0.933;0.948;0.962;0.967;1" calcMode="linear"/>
+<animate attributeName="stroke-dashoffset" dur="48s" repeatCount="indefinite" values="-0;-0;-0;-0;-0;-0;-11;-24;-37;-50;-63;-76;-89;-102;-115;-128;-141;-154;-167;-180;-193;-206;-219;-232;-245;-258;-264;-264;-270;-270;-283;-296;-302;-302;-315;-328;-341;-354;-360;-360;-373;-379;-379;-392;-405;-418;-431;-444;-457;-470;-483;-496;-509;-515;-515;-528;-541;-547;-547;-560;-573;-586;-592;-592;-605;-618;-631;-644;-657;-670;-683;-696;-709;-715;-715;-715" keyTimes="0;0.025;0.039;0.044;0.058;0.072;0.087;0.101;0.115;0.129;0.143;0.157;0.172;0.186;0.2;0.214;0.228;0.242;0.256;0.271;0.285;0.299;0.313;0.327;0.341;0.356;0.37;0.375;0.389;0.394;0.408;0.422;0.436;0.441;0.455;0.47;0.484;0.498;0.512;0.517;0.531;0.545;0.55;0.565;0.579;0.593;0.607;0.621;0.635;0.649;0.664;0.678;0.692;0.706;0.711;0.725;0.739;0.754;0.759;0.773;0.787;0.801;0.815;0.82;0.834;0.848;0.863;0.877;0.891;0.905;0.919;0.933;0.948;0.962;0.967;1" calcMode="linear"/>
+</path>
+<g filter="url(#snake-shadow)">
+<circle cx="0" cy="0" r="6.4" fill="#1E40AF"/>
+<circle cx="0" cy="0" r="5.2" fill="#2563EB"/>
+<circle cx="2.2" cy="-2.1" r="1.25" fill="#ffffff"/>
+<circle cx="2.2" cy="2.1" r="1.25" fill="#ffffff"/>
+<circle cx="2.7" cy="-2.1" r="0.55" fill="#111827"/>
+<circle cx="2.7" cy="2.1" r="0.55" fill="#111827"/>
+<animateMotion dur="48s" repeatCount="indefinite" rotate="auto" path="M 152 113 L 165 113 L 178 113 L 191 113 L 204 113 L 217 113 L 230 113 L 243 113 L 256 113 L 269 113 L 282 113 L 295 113 L 308 113 L 321 113 L 334 113 L 347 113 L 360 113 L 373 113 L 386 113 L 399 113 L 412 113 L 425 113 L 425 126 L 425 139 L 425 152 L 438 152 L 438 139 L 451 139 L 464 139 L 464 126 L 477 126 L 490 126 L 503 126 L 516 126 L 516 113 L 516 100 L 529 100 L 542 100 L 555 100 L 568 100 L 581 100 L 594 100 L 607 100 L 620 100 L 633 100 L 646 100 L 659 100 L 659 113 L 659 126 L 659 139 L 659 126 L 659 113 L 672 113 L 685 113 L 672 113 L 659 113 L 646 113 L 633 113 L 620 113 L 607 113 L 607 126 L 607 139 L 607 152 L 607 165" keyPoints="0;0;0.016;0.016;0.032;0.048;0.063;0.079;0.095;0.111;0.127;0.143;0.159;0.175;0.19;0.206;0.222;0.238;0.254;0.27;0.286;0.302;0.317;0.333;0.349;0.365;0.381;0.381;0.397;0.397;0.413;0.429;0.444;0.444;0.46;0.476;0.492;0.508;0.524;0.524;0.54;0.556;0.556;0.571;0.587;0.603;0.619;0.635;0.651;0.667;0.683;0.698;0.714;0.73;0.73;0.746;0.762;0.778;0.778;0.794;0.81;0.825;0.841;0.841;0.857;0.873;0.889;0.905;0.921;0.937;0.952;0.968;0.984;1;1;1" keyTimes="0;0.025;0.039;0.044;0.058;0.072;0.087;0.101;0.115;0.129;0.143;0.157;0.172;0.186;0.2;0.214;0.228;0.242;0.256;0.271;0.285;0.299;0.313;0.327;0.341;0.356;0.37;0.375;0.389;0.394;0.408;0.422;0.436;0.441;0.455;0.47;0.484;0.498;0.512;0.517;0.531;0.545;0.55;0.565;0.579;0.593;0.607;0.621;0.635;0.649;0.664;0.678;0.692;0.706;0.711;0.725;0.739;0.754;0.759;0.773;0.787;0.801;0.815;0.82;0.834;0.848;0.863;0.877;0.891;0.905;0.919;0.933;0.948;0.962;0.967;1" calcMode="linear"/>
+</g>
+</svg>
