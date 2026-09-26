@@ -1,0 +1,14 @@
+{
+  "username": "7toCR",
+  "generated_at": "2026-09-26T04:58:03.388310+00:00",
+  "first_active_date": "2025-11-11",
+  "last_date": "2026-09-26",
+  "active_days": 11,
+  "total_contributions": 32,
+  "duration_seconds": 48.0,
+  "window_days": 365,
+  "window_start": "2025-09-27",
+  "ordering": "nearest-reachable",
+  "route": "nearest-food-grid",
+  "growth_rule": "one segment per active contribution day"
+}
